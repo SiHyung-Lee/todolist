@@ -1,22 +1,74 @@
-.App {
-  text-align: center;
+body {
+    background-color: #f9f7f7;
 }
 
-.App-logo {
-  height: 40vmin;
+.add-task {
+    height: 40px;
+    background-color: #dbe2ef;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.add-task input {
+    width: calc(100% - 100px);
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    height: 100%;
+    padding: 0 10px;
+    font-size: 16px;
 }
 
-.App-link {
-  color: #09d3ac;
+.add-task button {
+    width: 100px;
+    height: 100%;
+    border: none;
+    background-color: #112d4e;
+    color: #fff;
+    font-size: 16px;
+}
+
+.task {
+    position: relative;
+    margin: 7px 0;
+    padding: 12px 35px;
+    background-color: #3f72af;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.task input {
+    position: absolute;
+    top: 11px;
+    left: 10px;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #112d4e;
+    background-color: #fff;
+    -webkit-appearance: none;
+}
+
+.task p {
+    width: calc(100% - 100px);
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    font-size: 16px;
+    margin: 0;
+    color: #fff;
+}
+
+.task button {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    width: 50px;
+    height: 24px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #112d4e;
+    font-size: 13px;
+    color: #fff;
 }
