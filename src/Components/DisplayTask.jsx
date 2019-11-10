@@ -1,10 +1,10 @@
 import React from 'react';
 
-const DisplayTask = () => {
+const DisplayTask = (props) => {
     return (
         <div className="task">
             <input type="checkbox"/>
-            <p>나의 할일</p>
+            <p>{props.tasks}</p>
             <button type="button">삭제</button>
         </div>
     );

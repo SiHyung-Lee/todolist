@@ -51,6 +51,7 @@ body {
 
 .task p {
     width: calc(100% - 100px);
+    min-height: 19px;
     box-sizing: border-box;
     background: none;
     border: none;
