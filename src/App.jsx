@@ -7,7 +7,7 @@ import "./App.css";
 class App extends React.Component {
     state = {
         task: '',
-        tasks: ''
+        tasks: ['study React', 'component styling']
     };
 
     handleChangeTask = (e) => {
