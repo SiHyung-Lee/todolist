@@ -7,7 +7,12 @@ import "./App.css";
 class App extends React.Component {
     state = {
         task: '',
-        tasks: ['study React', 'component styling']
+        tasks: []
+    };
+
+    id = 0;
+    getId = () => {
+        return this.id++
     };
 
     handleChangeTask = (e) => {
@@ -18,7 +23,20 @@ class App extends React.Component {
 
     handleAddTask = () => {
         this.setState({
-            tasks: this.state.task
+            tasks: [
+                ...this.state.tasks,
+                {
+                    id: this.getId(),
+                    text: this.state.task,
+                    done: false
+                }
+            ]
+        });
+    };
+
+    handleCheck = (e) => {
+        this.setState({
+            tasks: []
         });
     };
 
@@ -33,6 +51,7 @@ class App extends React.Component {
                 />
                 <DisplayTask
                     tasks={this.state.tasks}
+                    handleCheck={this.handleCheck}
                 />
             </div>
         );

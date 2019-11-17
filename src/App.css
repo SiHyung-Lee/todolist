@@ -46,7 +46,7 @@ body {
     height: 14px;
     border: 1px solid #112d4e;
     background-color: #fff;
-    -webkit-appearance: none;
+    /*-webkit-appearance: none;*/
 }
 
 .task p {

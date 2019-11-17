@@ -1,17 +1,15 @@
 import React from 'react';
 
 const DisplayTask = (props) => {
-    const displayTask = props.tasks.map(task => {
+    return props.tasks.map(task => {
         return (
-            <div className="task">
-                <input type="checkbox"/>
-                <p>{task}</p>
+            <div className="task" key={task.id}>
+                <input type="checkbox" checked={task.done} onChange={props.handleCheck}/>
+                <p>{task.text}</p>
                 <button type="button">삭제</button>
             </div>
         )
-    });
-
-    return displayTask;
+    })
 };
 
 export default DisplayTask;
