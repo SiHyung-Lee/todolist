@@ -7,7 +7,11 @@ import "./App.css";
 class App extends React.Component {
     state = {
         task: '',
-        tasks: []
+        tasks: [
+            {id: 0, text: 'react study', done: false},
+            {id: 1, text: 'es6 study', done: false},
+            {id: 2, text: 'typescript study', done: false},
+        ]
     };
 
     id = 0;
@@ -23,6 +27,7 @@ class App extends React.Component {
 
     handleAddTask = () => {
         this.setState({
+            task: '',
             tasks: [
                 ...this.state.tasks,
                 {
@@ -34,9 +39,24 @@ class App extends React.Component {
         });
     };
 
-    handleCheck = (e) => {
+    handleCheck = (id) => {
+        const idx = this.state.tasks.findIndex(
+            (task) => id === task.id
+        );
+        console.log(this.state.tasks[idx]);
+        const toggled = {
+            ...this.state.tasks[idx],
+            //done: !this.state.tasks[idx].done
+        };
+        console.log(toggled);
+
         this.setState({
-            tasks: []
+            tasks: [
+                ...this.state.tasks.slice(0, idx),
+                toggled,
+                ...this.state.tasks.slice(idx + 1, this.state.tasks.length)
+
+            ]
         });
     };
 
