@@ -11,6 +11,8 @@ class App extends React.Component {
             {id: 0, text: 'react study', done: false},
             {id: 1, text: 'es6 study', done: false},
             {id: 2, text: 'typescript study', done: false},
+            {id: 3, text: 'Grid Layout study', done: false},
+            {id: 4, text: 'css3 animation study', done: false},
         ]
     };
 
@@ -43,19 +45,30 @@ class App extends React.Component {
         const idx = this.state.tasks.findIndex(
             (task) => id === task.id
         );
-        console.log(this.state.tasks[idx]);
+
         const toggled = {
             ...this.state.tasks[idx],
-            //done: !this.state.tasks[idx].done
+            done: !this.state.tasks[idx].done
         };
-        console.log(toggled);
 
         this.setState({
             tasks: [
                 ...this.state.tasks.slice(0, idx),
                 toggled,
                 ...this.state.tasks.slice(idx + 1, this.state.tasks.length)
+            ]
+        });
+    };
 
+    handleDelete = (id) => {
+        const idx = this.state.tasks.findIndex(
+            (task) => id === task.id
+        );
+
+        this.setState({
+            tasks: [
+                ...this.state.tasks.slice(0, idx),
+                ...this.state.tasks.slice(idx + 1, this.state.tasks.length)
             ]
         });
     };
@@ -72,6 +85,7 @@ class App extends React.Component {
                 <DisplayTask
                     tasks={this.state.tasks}
                     handleCheck={this.handleCheck}
+                    handleDelete={this.handleDelete}
                 />
             </div>
         );

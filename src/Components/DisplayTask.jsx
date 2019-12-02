@@ -6,7 +6,7 @@ const DisplayTask = (props) => {
             <div className="task" key={task.id}>
                 <input type="checkbox" checked={task.done} onChange={() => props.handleCheck(task.id)}/>
                 <p>{task.text}</p>
-                <button type="button">삭제</button>
+                <button type="button" onClick={() => props.handleDelete(task.id)}>삭제</button>
             </div>
         )
     })

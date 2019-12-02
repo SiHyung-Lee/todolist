@@ -60,6 +60,10 @@ body {
     color: #fff;
 }
 
+.task input:checked + p {
+    text-decoration: line-through;
+}
+
 .task button {
     position: absolute;
     top: 9px;
