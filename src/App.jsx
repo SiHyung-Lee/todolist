@@ -28,6 +28,10 @@ class App extends React.Component {
     };
 
     handleAddTask = () => {
+        if (this.state.task === '') {
+            alert('할일을 입력해주세요');
+            return false;
+        }
         this.setState({
             task: '',
             tasks: [
@@ -54,8 +58,8 @@ class App extends React.Component {
         this.setState({
             tasks: [
                 ...this.state.tasks.slice(0, idx),
+                ...this.state.tasks.slice(idx + 1, this.state.tasks.length),
                 toggled,
-                ...this.state.tasks.slice(idx + 1, this.state.tasks.length)
             ]
         });
     };
