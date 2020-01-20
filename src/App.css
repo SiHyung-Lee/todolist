@@ -11,7 +11,7 @@ body {
     margin-bottom: 20px;
 }
 
-.add-task input {
+.add-task input{
     width: calc(100% - 100px);
     box-sizing: border-box;
     background: none;
@@ -39,7 +39,7 @@ body {
     overflow: hidden;
 }
 
-.task input {
+.task input[type=checkbox] {
     position: absolute;
     top: 11px;
     left: 10px;
@@ -50,7 +50,7 @@ body {
     /*-webkit-appearance: none;*/
 }
 
-.task p {
+.task input[type=text] {
     width: calc(100% - 100px);
     min-height: 19px;
     box-sizing: border-box;
@@ -61,14 +61,13 @@ body {
     color: #fff;
 }
 
-.task input:checked + p {
+.task input[type=checkbox]:checked + input[type=text] {
     text-decoration: line-through;
 }
 
 .task button {
     position: absolute;
     top: 9px;
-    right: 10px;
     width: 50px;
     height: 24px;
     margin-left: 5px;
@@ -77,4 +76,12 @@ body {
     background-color: #112d4e;
     font-size: 13px;
     color: #fff;
+}
+
+.task .button-modify {
+    right: 65px;
+}
+
+.task .button-delete {
+    right: 10px;
 }

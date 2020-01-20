@@ -7,13 +7,8 @@ import "./App.css";
 class App extends React.Component {
     state = {
         task: '',
-        tasks: [
-            {id: 0, text: 'react study', done: false},
-            {id: 1, text: 'es6 study', done: false},
-            {id: 2, text: 'typescript study', done: false},
-            {id: 3, text: 'Grid Layout study', done: false},
-            {id: 4, text: 'css3 animation study', done: false},
-        ]
+        readOnly: true,
+        tasks: []
     };
 
     id = 0;
@@ -27,20 +22,24 @@ class App extends React.Component {
         });
     };
 
-    handleAddTask = () => {
+    handleAddTask = (e) => {
+        e.preventDefault();
+
         if (this.state.task === '') {
             alert('할일을 입력해주세요');
             return false;
         }
+
         this.setState({
             task: '',
             tasks: [
-                ...this.state.tasks,
                 {
                     id: this.getId(),
                     text: this.state.task,
+                    readOnly: true,
                     done: false
-                }
+                },
+                ...this.state.tasks,
             ]
         });
     };
@@ -62,6 +61,10 @@ class App extends React.Component {
                 toggled,
             ]
         });
+    };
+
+    handleModify = (id) => {
+        console.log(id);
     };
 
     handleDelete = (id) => {

@@ -5,8 +5,9 @@ const DisplayTask = (props) => {
         return (
             <div className="task" key={task.id}>
                 <input type="checkbox" checked={task.done} onChange={() => props.handleCheck(task.id)}/>
-                <p>{task.text}</p>
-                <button type="button" onClick={() => props.handleDelete(task.id)}>삭제</button>
+                <input type="text" value={task.text} readOnly={task.readOnly}/>
+                <button type="button" className="button-modify" onClick={() => props.handleModify(task.id)}>수정</button>
+                <button type="button" className="button-delete" onClick={() => props.handleDelete(task.id)}>삭제</button>
             </div>
         )
     })
