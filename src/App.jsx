@@ -16,7 +16,18 @@ class App extends React.Component {
         return this.id++
     };
 
+    onRefInput = ref => {
+        this.input = ref;
+    };
+
     handleChangeTask = (e) => {
+        this.setState({
+            task: e.target.value
+        });
+    };
+
+    handleModifyTask = (e) => {
+        console.log(e);
         this.setState({
             task: e.target.value
         });
@@ -58,13 +69,30 @@ class App extends React.Component {
             tasks: [
                 ...this.state.tasks.slice(0, idx),
                 ...this.state.tasks.slice(idx + 1, this.state.tasks.length),
-                toggled,
+                toggled
             ]
         });
     };
 
     handleModify = (id) => {
-        console.log(id);
+        const idx = this.state.tasks.findIndex(
+            (task) => id === task.id
+        );
+
+        const modified = {
+            ...this.state.tasks[idx],
+            readOnly: false
+        };
+
+        this.setState({
+            tasks: [
+                ...this.state.tasks.slice(0, idx),
+                modified,
+                ...this.state.tasks.slice(idx + 1, this.state.tasks.length)
+            ]
+        });
+
+        this.input.focus();
     };
 
     handleDelete = (id) => {
@@ -92,7 +120,10 @@ class App extends React.Component {
                 <DisplayTask
                     tasks={this.state.tasks}
                     handleCheck={this.handleCheck}
+                    handleModify={this.handleModify}
                     handleDelete={this.handleDelete}
+                    onRefInput={this.onRefInput}
+                    handleModifyTask={this.handleModifyTask}
                 />
             </div>
         );
