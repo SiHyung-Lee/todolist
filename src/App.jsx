@@ -21,13 +21,7 @@ class App extends React.Component {
     };
 
     handleChangeTask = (e) => {
-        this.setState({
-            task: e.target.value
-        });
-    };
-
-    handleModifyTask = (e) => {
-        console.log(e);
+        console.log('aaaa')
         this.setState({
             task: e.target.value
         });
@@ -74,6 +68,13 @@ class App extends React.Component {
         });
     };
 
+    handleModifyTask = (e) => {
+        console.log('bbbb');
+        this.setState({
+            modifyTask: e.target.value
+        });
+    };
+
     handleModify = (id) => {
         const idx = this.state.tasks.findIndex(
             (task) => id === task.id
@@ -91,8 +92,8 @@ class App extends React.Component {
                 ...this.state.tasks.slice(idx + 1, this.state.tasks.length)
             ]
         });
-
-        this.input.focus();
+        console.log(modified);
+        //this.input.focus();
     };
 
     handleDelete = (id) => {
@@ -119,15 +120,16 @@ class App extends React.Component {
                 />
                 <DisplayTask
                     tasks={this.state.tasks}
+                    modifyTask={this.state.modifyTask}
                     handleCheck={this.handleCheck}
                     handleModify={this.handleModify}
                     handleDelete={this.handleDelete}
-                    onRefInput={this.onRefInput}
+                    //onRefInput={this.onRefInput}
                     handleModifyTask={this.handleModifyTask}
                 />
             </div>
         );
     }
-};
+}
 
 export default App;
